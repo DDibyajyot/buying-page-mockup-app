@@ -15,7 +15,7 @@ export default function BuyingPage() {
       skuName: "Indomie regular Chicken",
       price: 5850,
       recommendedQty: 200,
-      qtyToBuy: "",
+      qtyToBuy: 200,
       note: "",
     },
     {
@@ -24,7 +24,7 @@ export default function BuyingPage() {
       skuName: "Dano UHT 3009",
       price: 5678,
       recommendedQty: 120,
-      qtyToBuy: "",
+      qtyToBuy: 120,
       note: "",
     },
   ]); // SKUs in the table
@@ -228,10 +228,8 @@ const handleAddSku = () => {
                   {sku.recommendedQty}
                 </td>
                 <td className="border border-gray-300 p-2">
-                  {/* Only show the input field for qtyToBuy after SKU is added */}
-                  {newSku ? (
-                    ""
-                  ) : (
+                  {/* Only show the input field for qtyToBuy if it is not already filled */}
+                  {sku.qtyToBuy === "" ? (
                     <input
                       type="number"
                       value={debouncedQty[index] || sku.qtyToBuy}
@@ -239,8 +237,10 @@ const handleAddSku = () => {
                         handleQtyChangeDebounced(index, e.target.value)
                       }
                       className="border border-gray-300 rounded-lg p-2 w-20"
-                      placeholder={sku.recommendedQty}
+                      placeholder="Enter qty to buy"
                     />
+                  ) : (
+                    sku.qtyToBuy // If already added, display the value
                   )}
                 </td>
                 <td className="border border-gray-300 p-2">
