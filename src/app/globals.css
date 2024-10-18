@@ -7,12 +7,6 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   color: var(--foreground);
@@ -25,3 +19,11 @@ body {
     text-wrap: balance;
   }
 }
+
+th,
+td {
+  width: auto;
+  min-width: 150px;
+  /* Adjust the minimum width */
+}
+
