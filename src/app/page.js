@@ -1,7 +1,7 @@
 "use client"; // Client Component for stateful logic
 
 import { useState, useEffect } from "react";
-import { skuList } from "../../data/skus"; // Mocked SKUs for the table
+import { skuList } from "../data/skus"; // Mocked SKUs for the table
 
 export default function BuyingPage() {
   const [accountId] = useState("John Doe"); // Placeholder Account Name
